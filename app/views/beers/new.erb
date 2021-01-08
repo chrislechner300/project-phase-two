@@ -2,7 +2,21 @@
 
 <form action="/beers" method="post">
   <div class="input-field">
-          <input id="beer_name" name="beer_name" type="text" class="validate">
-          <label for="beer_name">Beer Name</label>
-        </div>
+    <input id="beer_name" name="beer_name" type="text" class="validate">
+    <label for="beer_name">Beer Name</label>
+  </div>
+  <div class="input-field">
+    <input type="text" name="style">
+    <label for="beer_style">Style Of Beer</label>
+  </div>
+  <div class="input-field">
+    <input type="date" class="validate">
+    <label for="beer_name">Date Sampled</label>
+  </div>
+  <div class="input-field">
+    <input id="brewery" name="brewery" type="text" class="validate">
+    <label for="brewery">Brewery Name</label>
+  </div>
+
+  <input type="submit" value="Add To List">
 </form>
