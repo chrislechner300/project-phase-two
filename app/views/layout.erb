@@ -10,16 +10,25 @@
     <title>ProjectPhaseTwo</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      
-      
-
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
             
     
   </head>
   <body>
-    
+      <nav class="brown lighten-1">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo right">Beer Tracker</a>
+          <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="x">Login</a></li>
+            <li><a href="x">Signup</a></li>
+            <li><a href="x">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
 
         <%= yield %>
 
@@ -28,10 +37,7 @@
       </footer>
     </div>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-
-     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
 
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
