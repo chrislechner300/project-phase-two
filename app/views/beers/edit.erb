@@ -1,0 +1,21 @@
+<h2>Edit<br>   
+"<%= @beer.name %>"</h2>
+
+<form action="/beers/<%= @beer.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div class="input-field">
+    <input id="beer_name" name="beer[name]" type="text" class="validate" value="<%=@beer.name %>">
+    <label for="beer_name">Beer Name</label>
+  </div>
+  <div class="input-field">
+    <input id="beer_style" name="beer[style]" type="text" value="<%=@beer.style %>">
+    <label for="beer_style">Style Of Beer</label>
+  </div>
+  
+  <div class="input-field">
+    <input id="brewery" name="beer[brewery]" type="text" value="<%=@beer.brewery %>">
+    <label for="brewery">Brewery Name</label>
+  </div>
+
+  <input type="submit" value="Update Entry">
+</form>
