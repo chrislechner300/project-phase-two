@@ -1,6 +1,6 @@
 <h3>Beer List</h3>
 
-<p>Recently Viewed: <%= @beer ? @beer.name : "You haven't visited any beers." %></p>
+<p>Last Visited: <%= @beer ? @beer.name : "You haven't visited any beers." %></p>
 
 <ul>
   <% @beers.each do |beer| %>
