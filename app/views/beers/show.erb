@@ -2,4 +2,9 @@
 <p>Style: <%= @beer.style %></p>
 <p>Brewery: <%= @beer.brewery %></p>
 
-<a href="/beers/<%= @beer.id %>/edit">Edit</a>
+
+<form action="/beers/<%= @beer.id %>" method="post">
+  <a href="/beers/<%= @beer.id %>/edit">Edit</a>  
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Entry">
+</form>
