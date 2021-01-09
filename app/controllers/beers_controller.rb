@@ -2,6 +2,7 @@ class BeersController < ApplicationController
 
   get '/beers' do
     @beers = Beer.all
+    @beer = Beer.find_by_id(session[:beer_id])
     erb :'beers/index'
   end
 
@@ -12,6 +13,7 @@ class BeersController < ApplicationController
 
   get '/beers/:id' do
     find_beer
+    session[:beer_id] = @beer.id if @beer
     redirect_if_beer_not_found
     erb :'beers/show'
   end
