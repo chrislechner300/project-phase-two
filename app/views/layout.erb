@@ -23,11 +23,14 @@
         <div class="nav-wrapper">
           <a href="/" class="brand-logo right">Beer Tracker</a>
           <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a href="x">Login</a></li>
-            <li><a href="/signup">Signup</a></li>
-            <li><a href="x">Logout</a></li>
-            <li><a href="/beers/new">Add A New Beer</a></li>
-            <li><a href="/beers">Beers</a></li>
+            <% if !is_logged_in? %>
+              <li><a href="x">Login</a></li>
+              <li><a href="/signup">Signup</a></li>
+            <% else %>
+              <li><a href="/logout">Logout</a></li>
+             <li><a href="/beers/new">Add A New Beer</a></li>
+             <li><a href="/beers">Beers</a></li>
+            <% end %>
           </ul>
         </div>
       </nav>
