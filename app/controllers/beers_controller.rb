@@ -35,6 +35,7 @@ class BeersController < ApplicationController
     if beer.save
       redirect '/beers'
     else
+      
       redirect '/beers/new'
     end
   end 
