@@ -1,32 +1,37 @@
 class BeersController < ApplicationController
 
   get '/beers' do
-    @beers = Beer.all
+    redirect_if_not_logged_in
+    @beers = current_user.beers
     @beer = Beer.find_by_id(session[:beer_id])
     erb :'beers/index'
   end
 
   
   get '/beers/new' do
+    redirect_if_not_logged_in
     erb :'beers/new'
   end
 
   get '/beers/:id' do
+    redirect_if_not_logged_in
     find_beer
+    redirect_if_not_owner
     session[:beer_id] = @beer.id if @beer
     redirect_if_beer_not_found
     erb :'beers/show'
   end
   
   get '/beers/:id/edit' do
+    redirect_if_not_logged_in
     find_beer
     redirect_if_beer_not_found
+    redirect_if_not_owner
     erb :'beers/edit'
   end
   
   post '/beers' do
-    beer = Beer.new(params[:beer])
-    
+    beer = current_user.beers.build(params[:beer])
     if beer.save
       redirect '/beers'
     else
@@ -46,7 +51,9 @@ class BeersController < ApplicationController
 
   delete '/beers/:id' do
     find_beer
-    @beer.destroy if @beer
+    redirect_if_beer_not_found
+    redirect_if_not_owner
+    @beer.destroy
     redirect "/beers"
   end
   
@@ -57,6 +64,10 @@ class BeersController < ApplicationController
   
   def redirect_if_beer_not_found
     redirect "/beers" unless @beer
+  end
+
+  def redirect_if_not_owner
+    redirect "/beers" unless @beer.user == current_user
   end
   
 end
