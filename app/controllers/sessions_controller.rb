@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
         redirect "/beers"
       else
         redirect "/login"
+      end
   end
 
   get '/logout' do
